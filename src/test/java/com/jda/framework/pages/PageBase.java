@@ -32,7 +32,6 @@ public abstract class PageBase {
     public PageBase(WebDriver driver){
 
         this.driver = driver;
-        //org.openqa.selenium.support.PageFactory.initElements(driver, this);
     }
 
 

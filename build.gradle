@@ -12,8 +12,10 @@ repositories {
 dependencies {
     testImplementation("org.assertj:assertj-core:3.11.1")
 
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.junit.platform:junit-platform-launcher:1.9.3'
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.11.4"
+    testImplementation("org.junit.platform:junit-platform-runner:1.13.0-M3")
+    testImplementation("org.junit.platform:junit-platform-suite-engine:1.13.0-M3")
 
     testImplementation 'commons-io:commons-io:2.19.0'
     testImplementation 'org.apache.poi:poi:5.4.1'
@@ -30,6 +32,8 @@ dependencies {
 }
 
 test {
+    testLogging.showStandardStreams = true
     maxParallelForks = 3
+    include("com/jda/suites/**")
     useJUnitPlatform()
 }

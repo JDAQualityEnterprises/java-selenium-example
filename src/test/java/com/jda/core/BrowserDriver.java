@@ -1,5 +1,6 @@
 package com.jda.core;
 
+import com.aventstack.extentreports.Status;
 import org.apache.logging.log4j.*;
 
 import org.assertj.core.api.*;
@@ -11,6 +12,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import static com.jda.core.TestBase.TestReporter;
 
 
 public class BrowserDriver {
@@ -50,16 +53,15 @@ public class BrowserDriver {
 
 					//Output environment variables
 					Message = "BrowserDriver.setDriver.Platform: " + capabilitiesCH.getPlatformName();
-					//Reporter.log(Message);
+					TestReporter.get().log(Status.INFO,Message);
 					logger.info(Message);
 					Message = "BrowserDriver.setDriver.Browser: " + capabilitiesCH.getBrowserName();
-					//Reporter.log(Message);
+					TestReporter.get().log(Status.INFO,Message);
 					logger.info(Message);
 					Message = "BrowserDriver.setDriver.Version: " + capabilitiesCH.getBrowserVersion();
-					//Reporter.log(Message);
+					TestReporter.get().log(Status.INFO,Message);
 					logger.info(Message);
 
-					//maximise the browser window
 					driver.manage().window().maximize();
 				default:
 					break;

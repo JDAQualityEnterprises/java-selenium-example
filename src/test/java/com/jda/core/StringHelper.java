@@ -1,6 +1,7 @@
 package com.jda.core;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.TestInfo;
 import org.openqa.selenium.InvalidArgumentException;
 
 import java.text.DateFormat;
@@ -164,5 +165,11 @@ import java.util.Date;
             success = false;
         }
         return success;
+    }
+
+    public static String methodNameFromTestInfo(TestInfo info){
+        String methodName = info.getTestMethod().toString();
+        int nameIdx = methodName.lastIndexOf(".")+1;
+        return methodName.substring(nameIdx, methodName.length()-3);
     }
 }

@@ -12,7 +12,7 @@ public class ExtentReporter {
 	private static ExtentReports extent = null;
 	//private static ExtentTest test;
 	private static ExtentSparkReporter htmlReporter;
-	private static String filePath = "./extentreport.html";
+	private static String filePath = "./build/reports/extentreport.html";
 	
 	public static final ExtentReports getExtentReports() {
 		try{
@@ -31,7 +31,7 @@ public class ExtentReporter {
 		try{
 			logger.debug("ExtentReporter | setExtentReports | Create the Extent Reports object");
 			extent = new ExtentReports();
-			
+
 			extent.attachReporter(getHtmlReporter(ConfigFile));
 			return ExtentReporter.extent = extent;
 			//return extent;
@@ -58,7 +58,7 @@ public class ExtentReporter {
 	        // make the charts visible on report open
 	        //htmlReporter.config().setChartVisibilityOnOpen(true);
 			
-	        //htmlReporter.config().setDocumentTitle("HRE automation report");
+	        //htmlReporter.config().setDocumentTitle("JDA automation report");
 	        //htmlReporter.config().setReportName("Regression cycle");
 	        return htmlReporter;
 		}
